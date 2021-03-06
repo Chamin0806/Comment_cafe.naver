@@ -6,23 +6,23 @@ import schedule
 from bs4 import BeautifulSoup
 import pyautogui as pm
 
-mainUrl = 'https://cafe.naver.com/sangmoelearning20203'
+mainUrl = 'https://cafe.naver.com/your_naver_cafe_link'
 classUrl = [
-    'https://cafe.naver.com/sangmoelearning20203/2216',
-    'https://cafe.naver.com/sangmoelearning20203/2198',
-    'https://cafe.naver.com/sangmoelearning20203/2196',
-    'https://cafe.naver.com/sangmoelearning20203/2224',
-    'https://cafe.naver.com/sangmoelearning20203/2191',
+    'https://cafe.naver.com/your_naver_cafe_link/1233',
+    'https://cafe.naver.com/your_naver_cafe_link/3343',
+    'https://cafe.naver.com/your_naver_cafe_link/5623',
+    'https://cafe.naver.com/your_naver_cafe_link/2323',
+    'https://cafe.naver.com/your_naver_cafe_link/1783',
     '123',
     '123'
 ]
 
 commentText = [
-    "12번 손차민 출석입니다.",
+    "3번 ㅇㅇㅇ 출석입니다.",
     "출석",
     "출석",
     "출석",
-    "12번 손차민",
+    "3번 ㅇㅇㅇ 출석",
     "출석",
     "출석"
 ]
@@ -33,12 +33,6 @@ commentText = [
 def Login(url,comment):
     driver = webdriver.Chrome('chromedriver')
 
-    # driver.get('https://chrome.google.com/webstore/detail/native-adblocker/camfdpcgapdnbokfgemmhdjeoajendmk/related?hl=ko')
-    # time.sleep(5)
-    # pm.click(905,303)
-    # time.sleep(1)
-    # pm.click(566,265)
-    # time.sleep(3)
     driver.get(mainUrl)
     driver.implicitly_wait(3)
 
@@ -74,10 +68,6 @@ def Login(url,comment):
     time.sleep(3)
 
 
-    # pm.scroll(-100000) #제일 아래로 스크롤 다운
-    # time.sleep(0.1)
-    # pm.scroll(4000) #댓글 창 보이게 조금 스크롤 업
-    # time.sleep(3)
     driver.switch_to.frame('cafe_main')
     commentBox = driver.find_element_by_class_name("comment_inbox_text")
     commentBox.click()
@@ -93,26 +83,6 @@ def Login(url,comment):
     
 
 
-    
-
-    # pm.moveTo(503,305) #웹 쪽으로 마우스 이동
-    # time.sleep(0.1)
-    # pm.scroll(-100000) #제일 아래로 스크롤 다운
-    # time.sleep(0.1)
-    # pm.scroll(4000) #댓글 창 보이게 조금 스크롤 업
-    # time.sleep(0.1)
-    # pm.click(207,734) #댓글 창 클릭
-    # time.sleep(1)
-
-    # pyperclip.copy(comment)
-    # pm.hotkey('ctrl', 'v') #comment 작성
-    # time.sleep(0.5)
-
-    # pm.click(862, 772) #댓글 등록
-    
-    # time.sleep(10)
-
-    #/html/body/div/div/div/div[2]/div[2]/div[4]/div[2]/div[1]/textarea
 
 
 schedule.every().day.at("08:40").do(Login,classUrl[0],commentText[0]) #1교시
